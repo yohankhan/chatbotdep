@@ -85,5 +85,10 @@ def getResponse(ints, intents_json):
             break
     return result
 
+# if __name__ == "__main__":
+#     app.run(debug=True)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Use the PORT environment variable provided by Render or default to 10000
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
