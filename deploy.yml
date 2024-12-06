@@ -1,0 +1,15 @@
+- hosts: webserver
+  tasks:
+    - name: Pull Docker image
+      docker_image:
+        name: chatbot
+        tag: latest
+        source: pull
+
+    - name: Run chatbot container
+      docker_container:
+        name: chatbot
+        image: chatbot:latest
+        state: started
+        ports:
+          - "8501:8501"
